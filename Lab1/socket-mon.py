@@ -9,7 +9,7 @@ class  Data():
                 self.status=status
 
 for c in psutil.net_connections(kind='tcp'):
-        if c.raddr:
+        if c.raddr and c.laddr:
             laddr = "%s@%s" % (c.laddr)
             raddr = "%s@%s" % (c.raddr)
             pid = "%s" % (c.pid)
