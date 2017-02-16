@@ -1,21 +1,16 @@
-Output for the socket-mon.py
+Lab 1
 
+Requirements
+
+Use psutil and implement a network socket monitoring tool that can check how many TCP sockets are being created by a web application.
+Create a Python script called socket-mon.py.
+List all processes that have any socket connections (meaning the laddr and raddr fields exist).
+Group by the PID and sort the output by the number of the connections per process.
+Expected Output in CSV format
+
+$ python socket-mon.py (or $ sudo python socket-mon.py)
 "pid","laddr","raddr","status"
-"8392","127.0.0.1@53925","127.0.0.1@53926","ESTABLISHED"
-"8392","127.0.0.1@53926","127.0.0.1@53925","ESTABLISHED"
-"8392","127.0.0.1@53928","127.0.0.1@53927","ESTABLISHED"
-"8392","127.0.0.1@53927","127.0.0.1@53928","ESTABLISHED"
-"0","192.168.1.4@54823","192.168.1.1@5000","TIME_WAIT"
-"0","192.168.1.4@54824","192.168.1.1@5000","TIME_WAIT"
-"0","192.168.1.4@54820","216.58.195.78@443","TIME_WAIT"
-"0","192.168.1.4@54825","192.168.1.1@5000","TIME_WAIT"
-"11428","192.168.1.4@54779","157.55.130.147@40007","CLOSE_WAIT"
-"11428","192.168.1.4@54781","91.190.219.40@12350","CLOSE_WAIT"
-"1088","192.168.1.4@54831","192.168.1.1@5000","ESTABLISHED"
-"1088","192.168.1.4@53796","40.77.224.254@443","ESTABLISHED"
-"4164","192.168.1.4@53668","131.253.34.246@443","ESTABLISHED"
-"12028","127.0.0.1@53845","127.0.0.1@30000","ESTABLISHED"
-"5348","127.0.0.1@30000","127.0.0.1@53845","ESTABLISHED"
-"4796","192.168.1.4@53758","40.77.224.145@443","ESTABLISHED"
-"5652","192.168.1.4@54821","216.58.195.78@443","ESTABLISHED"
-"9996","192.168.1.4@54826","192.168.1.1@5000","FIN_WAIT2"
+"1234","10.0.0.1@48776","93.186.135.91@80","ESTABLISHED"
+"1234","10.0.0.1@48777","93.186.135.91@80","ESTABLISHED"
+"5678","10.0.0.1@48779","193.286.35.91@8000","CLOSING"
+In the above output, the PID 1234 has two active connection with ESTABLISHED status and the other PID 5678 is closing one connection.
